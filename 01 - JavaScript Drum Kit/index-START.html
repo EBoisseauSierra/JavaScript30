@@ -71,8 +71,18 @@
     keyBlock.classList.add('playing');
   }
 
+  function unhighlightKey(e) {
+    // fire function for one transform only
+    if(e.propertyName !== 'transform') return;
+
+    this.classList.remove('playing');
+  }
+
   window.addEventListener('keydown', playSound);
   window.addEventListener('keydown', highlightKey);
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', unhighlightKey))
 </script>
 
 
