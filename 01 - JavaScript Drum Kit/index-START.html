@@ -63,7 +63,8 @@
 
     // quit if audio is null, i.e., no audio file matching the key pressed
     if (!audio) return;
-
+    
+    audio.currentTime = 0;
     audio.play();
   }
 
