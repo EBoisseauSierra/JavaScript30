@@ -58,12 +58,21 @@
 
     // quit if audio is null, i.e., no audio file matching the key pressed
     if (!audio) return;
-    
+
     audio.currentTime = 0;
     audio.play();
   }
 
+  function highlightKey(e) {
+    const keyBlock = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+    if (!keyBlock) return;
+
+    keyBlock.classList.add('playing');
+  }
+
   window.addEventListener('keydown', playSound);
+  window.addEventListener('keydown', highlightKey);
 </script>
 
 
